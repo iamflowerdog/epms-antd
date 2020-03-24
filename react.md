@@ -40,3 +40,5 @@
 ```
 * 这里，React组件也可以订阅到context变更，所以我们利用函数组件中完成订阅context
 * 这需要函数作为子元素这种做法（通过其他render属性呢？），这个函数接收当前context的值，返回一个react节点。传递给函数的值等同于往上组件树离这个context最近的Provider提供的value值，如果没有对应的Provider，value参数等同于传递给creactContext()的defaultValue
+
+#### 使用脚手架
