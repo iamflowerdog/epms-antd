@@ -42,3 +42,12 @@
 * 这需要函数作为子元素这种做法（通过其他render属性呢？），这个函数接收当前context的值，返回一个react节点。传递给函数的值等同于往上组件树离这个context最近的Provider提供的value值，如果没有对应的Provider，value参数等同于传递给creactContext()的defaultValue
 
 #### 使用脚手架
+* create-react-app rekit codesandbox.io
+
+#### Redux
+* 纯函数：它的输出结果完全取决于它的输入参数，函数内部不依赖任何外部参数和外部参数。
+* 三个特性：
+  1. Single Source of Truth
+  2. 可预测性 state + action = new state
+  3. 纯函数更新Store
+  
