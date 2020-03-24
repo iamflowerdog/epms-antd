@@ -25,6 +25,18 @@
 
 #### 高阶组件
 * 高阶组件HOC High Order Component 复用组件逻辑的一种高级技巧，不是React API，一种组合React组成特性的设计模式
+* 类似于Vue的slot方法
   1. 高阶组件接受组件作为参数，返回新的组件
   2. 免去多层组件传递，麻烦，
 
+#### Context API 
+* 类似于Vue的依赖注入，祖先Provider，子孙inject
+* 用法 `let MyContext = React.createContext('defaultValue')`
+```
+<MyContext.Consumer>
+  {value => /* 基于 context 值进行渲染*/}
+</MyContext.Consumer>
+
+```
+* 这里，React组件也可以订阅到context变更，所以我们利用函数组件中完成订阅context
+* 这需要函数作为子元素这种做法（通过其他render属性呢？），这个函数接收当前context的值，返回一个react节点。传递给函数的值等同于往上组件树离这个context最近的Provider提供的value值，如果没有对应的Provider，value参数等同于传递给creactContext()的defaultValue
