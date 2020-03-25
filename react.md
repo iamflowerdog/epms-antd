@@ -69,3 +69,15 @@
 2. hash路由 --- 兼容老的浏览器
 3. 内存路由 --- 浏览器url不改变，在react-router内存里面
 
+#### React 前端单元测试简单
+1. 虚拟dom可以在nodejs中运行
+2. react 很少操作浏览器
+3. redux隔离了状态管理，纯数据单元测试
+
+#### 单元测试库
+* jest jsdom 
+* istanbul 测试覆盖率
+
+#### eslint 
+* airbnb-eslint
+* prettier (自动帮助我们格式化代码)

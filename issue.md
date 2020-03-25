@@ -14,3 +14,9 @@
 react-router-dom 顾名思义是和浏览器真实 dom 相关的，例如 BrowserRouter，而 react-router 则是跨平台（包括 NodeJS，React Native）都可运行的，例如 MemoryRouter。 在面向 Web 的开发中，一般引入 react-router-dom 即可。
 
 ```
+
+#### 4、老师，react4多路由 刷新的时候会出现404的情况，需要op配合配置吗
+```
+这应该是服务器端没有做 history fallback, 可以在服务器端实现一下。或者前端使用 HashRouter 替代 BrowserRouter。
+
+```
