@@ -3,9 +3,33 @@ import ReactDOM from 'react-dom';
 import { HashRouter as Router, Switch, Route, Link, NavLink } from 'react-router-dom';
 import { MemoryRouter, Prompt } from 'react-router';
 
-const Home = ({ match }) => <h1>Home {match.params.id}</h1>;
-const Hello = () => <h1>Hello</h1>;
-const About = () => <h1>About</h1>;
+const Category = ({ match }) => <h1>Sub Category {match.params.subId}</h1>;
+
+
+const SubCategory = ({ match }) => (
+  <div>
+    <h1>Category {match.params.id}</h1>
+
+    <ul id="meau">
+      <li >
+        <Link to={`/category/${match.params.id}/sub/1`}>sub category1</Link>
+      </li>
+      <li >
+        <Link to={`/category/${match.params.id}/sub/2`}>sub category2</Link>
+      </li>
+      <li >
+        <Link to={`/category/${match.params.id}/sub/3`}>sub category3</Link>
+      </li>
+    </ul>
+
+    <div>
+      <div id="page-container">
+        <Route path="/category/:id/sub/:subId" component={Category}></Route>
+      </div>
+    </div>
+
+  </div>
+)
 
 class RouterSample extends React.Component {
   render() {
@@ -14,18 +38,18 @@ class RouterSample extends React.Component {
         <div>
           <ul id="meau">
             <li >
-                <Link to="/home/1">Home1</Link>
+              <Link to="/category/1">category1</Link>
             </li>
             <li >
-              <Link to="/home/2">Home2</Link>
+              <Link to="/category/2">category2</Link>
             </li>
             <li >
-              <Link to="/home/3">Home3</Link>
+              <Link to="/category/3">category3</Link>
             </li>
           </ul>
 
           <div id="page-container">
-            <Route path="/home/:id" component={Home}></Route>
+            <Route path="/category/:id" component={SubCategory}></Route>
           </div>
         </div>
       </Router>
