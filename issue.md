@@ -8,3 +8,9 @@
 对，这两个调用都是同步的按顺序执行。subscribe先监听了，才能获得后面dispatch带来的store的变化。
 
 ```
+
+#### 3、有的标签来自于react-router,有的来自于react-router-dom。这两者有什么具体的区别吗？
+```
+react-router-dom 顾名思义是和浏览器真实 dom 相关的，例如 BrowserRouter，而 react-router 则是跨平台（包括 NodeJS，React Native）都可运行的，例如 MemoryRouter。 在面向 Web 的开发中，一般引入 react-router-dom 即可。
+
+```

@@ -51,3 +51,21 @@
   2. 可预测性 state + action = new state
   3. 纯函数更新Store
   
+#### immutable 不可变
+* 性能优化（不用比较对象的值，只需要判断引用是否更改，不需要深沉次比对）
+* 易于调试和追踪（store变化，可以看到前后状态变化）
+* 易于推测（根据action推测）
+  1. {...state, todos: [...state.todos, 'redux']}
+  2. Object.assign({}, state, { todos: [...state.todos, 'redux']})
+  3. immutability-helper 
+  4. immer
+
+#### React Router
+* 声明式路由定义（和后端express对应，路由表，用一个tag声明）
+* 动态路由（传统服务器对比，一旦定义，就是一个配置表，react只有在render时候才渲染）
+
+#### router 三种方式
+1. URL路径 
+2. hash路由 --- 兼容老的浏览器
+3. 内存路由 --- 浏览器url不改变，在react-router内存里面
+
