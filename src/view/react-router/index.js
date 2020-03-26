@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { HashRouter as Router, Switch, Route, Link, NavLink } from 'react-router-dom';
 import { MemoryRouter, Prompt } from 'react-router';
 
+import './index.less';
+
 const Category = ({ match }) => <h1>Sub Category {match.params.subId}</h1>;
 
 
@@ -24,6 +26,7 @@ const SubCategory = ({ match }) => (
 
     <div>
       <div id="page-container">
+        <div className="wavy"></div>
         <Route path="/category/:id/sub/:subId" component={Category}></Route>
       </div>
     </div>

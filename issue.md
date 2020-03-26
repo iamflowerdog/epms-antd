@@ -20,3 +20,9 @@ react-router-dom 顾名思义是和浏览器真实 dom 相关的，例如 Browse
 这应该是服务器端没有做 history fallback, 可以在服务器端实现一下。或者前端使用 HashRouter 替代 BrowserRouter。
 
 ```
+
+#### 5. 在react里面书写自定义标签，控制台报warning？
+```
+自定义标签改成用类名控制就可以了
+
+```
