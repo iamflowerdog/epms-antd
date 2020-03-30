@@ -13,6 +13,17 @@ import {
 
 import './index.less';
 
+const Option = Select.Option;
+
+const genderOptions = [
+  { value: "male", displayName: "Male" },
+  { value: "female", displayName: "Female" }
+].map(item => (
+  <Option key={item.value} value={item.value}>
+    {item.displayName}
+  </Option>
+))
+
 // 表单组件
 class SearchForm extends React.Component {
   constructor(props) {
@@ -109,8 +120,7 @@ class SearchForm extends React.Component {
             ]
           })(
              <Select placeholder="gender">
-               <Select.Option value="1">male</Select.Option>
-               <Select.Option value="2">female</Select.Option>
+               {genderOptions}
              </Select>
             )}
         </Form.Item>
