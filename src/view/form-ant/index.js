@@ -128,7 +128,6 @@ class SearchForm extends React.Component {
     return (
       <Form 
         onSubmit={this.handleSearch}
-        style={{ width: "400px", margin: 'auto' }}
       >
         <FormBuilders 
           meta={formMeta}
