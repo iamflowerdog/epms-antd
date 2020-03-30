@@ -10,6 +10,7 @@ import {
   Tooltip,
   Icon
 } from 'antd';
+import FormBuilders from './FormBuilders';
 
 import './index.less';
 
@@ -23,6 +24,73 @@ const genderOptions = [
     {item.displayName}
   </Option>
 ))
+
+const formMeta = {
+  colon: true,
+  columns: 1,
+  elements: [
+    {
+      key: "userName",
+      label: "User name",
+      tooltip: "user name",
+      initialValue: "Nate",
+      widget: Input,
+      required: true
+    },
+    {
+      key: "password",
+      label: "Password",
+      widget: Input,
+      type: "password"
+    },
+    {
+      key: "date",
+      label: "Birth date",
+      widget: DatePicker,
+      widgetProps: { style: { width: "100%" } }
+    },
+    {
+      key: "gender",
+      label: "Gender",
+      initialValue: "female",
+      widget: Select,
+      children: genderOptions
+    },
+    {
+      key: "phone",
+      label: "Phone",
+      widget: Input,
+      required: true,
+      rules: [
+        {
+          pattern: /^\d+$/,
+          message: "Phone must only contain numbers."
+        },
+        {
+          min: 11,
+          message: "Phone number at least lenght of 11"
+        }
+      ]
+    },
+    {
+      key: "email",
+      label: "Email",
+      widget: Input,
+      rules: [
+        {
+          type: "email",
+          message: "Please input valid email address."
+        }
+      ]
+    },
+    {
+      key: "age",
+      label: "Age",
+      initialValue: 10,
+      widget: InputNumber
+    }
+  ]
+};
 
 // 表单组件
 class SearchForm extends React.Component {
@@ -57,109 +125,15 @@ class SearchForm extends React.Component {
   }
   
   render() {
-    const { getFieldDecorator } = this.props.form;
-    let { formData } = this.state;
     return (
       <Form 
         onSubmit={this.handleSearch}
         style={{ width: "400px", margin: 'auto' }}
       >
-        <Form.Item 
-          label={
-            <span>
-              User name&nbsp;
-              <Tooltip title="name">
-                <Icon type="question-circle-o" />
-              </Tooltip>
-            </span>
-          } 
-        >
-          {getFieldDecorator('name', {
-            rules: [
-              {
-                required: true,
-                message: 'Input something!',
-              },
-            ],
-            initialValue: formData.name
-          })(<Input placeholder="请输入房间编号" autoComplete="off" />)}
-        </Form.Item>
-        <Form.Item
-          label='Password'
-        >
-          {getFieldDecorator('password', {
-            rules: [
-              {
-                required: false,
-                message: 'Input password!',
-              },
-            ]
-          })(<Input placeholder="请输入password" type="password" autoComplete="off" />)}
-        </Form.Item>
-        <Form.Item
-          label='Birth Date'
-        >
-          {getFieldDecorator('birthday', {
-            rules: [
-              {
-                required: false,
-                message: 'Input birthday!',
-              },
-            ]
-          })(<DatePicker style={{ width: "100%" }} placeholder="birthday" />)}
-        </Form.Item>
-        <Form.Item
-          label='Gender'
-        >
-          {getFieldDecorator('gender', {
-            rules: [
-              {
-                required: false,
-                message: 'Input gender!',
-              },
-            ]
-          })(
-             <Select placeholder="gender">
-               {genderOptions}
-             </Select>
-            )}
-        </Form.Item>
-        <Form.Item
-          label='Phone'
-        >
-          {getFieldDecorator('phone', {
-            rules: [
-              {
-                pattern: /^\d+$/,
-                message: "Phone must only contain numbers."
-              },
-              {
-                min: 11,
-                message: "Phone number at least lenght of 11"
-              }
-            ]
-          })(<Input placeholder="Phone" />)}
-        </Form.Item>
-        <Form.Item
-          label='Email'
-        >
-          {getFieldDecorator('email', {
-            rules: [
-              {
-                type: "email",
-                message: "Please input valid email address."
-              }
-            ]
-          })(<Input placeholder="email" />)}
-        </Form.Item>
-        <Form.Item
-          label='Age'
-        >
-          {getFieldDecorator('age', {
-            rules: [],
-            initialValue: 10
-          })(<InputNumber placeholder="age" />)}
-        </Form.Item>
+        <FormBuilders 
+          meta={formMeta}
+          form={this.props.form}
+        />
         <div style={{ textAlign: "center" }}>
           <Button type="primary" htmlType="submit">
             Submit
