@@ -26,3 +26,5 @@ react-router-dom 顾名思义是和浏览器真实 dom 相关的，例如 Browse
 自定义标签改成用类名控制就可以了
 
 ```
+#### 6. vue和react是怎么做数据双向绑定的？
+* Object.definedProperty
