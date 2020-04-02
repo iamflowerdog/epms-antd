@@ -27,4 +27,9 @@ react-router-dom 顾名思义是和浏览器真实 dom 相关的，例如 Browse
 
 ```
 #### 6. vue和react是怎么做数据双向绑定的？
-* Object.definedProperty
+* Object.definedProperty `https://juejin.im/post/5e7410ed51882549087dc365`
+
+#### 7.页面数据来自多个请求 /multiple-request
+1. 请求之间无依赖关系，可以并发请求
+2. 请求之间有依赖，需要依次进行
+3. 请求完成之前，页面显示loading状态
